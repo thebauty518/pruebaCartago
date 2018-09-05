@@ -13,7 +13,7 @@
 
 
     <string name="tramiautos">TRAMIAUTOS</string>
-    <string name="descripcion">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</string>
+    <string name="descripcion">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</string>
     <string name="perfil">Mi Perfil</string>
     <string name="participante1">Junior Bonilla</string>
     <string name="participante2">John Bautista</string>
@@ -32,5 +32,10 @@
 
 
     <string name="guardar_registro_conductor">Guardar Registro</string>
+
+    <string name="renovacion_soap">Renovación SOAP</string>
+    <string name="revicion_tecno">Revición Tecno-mecánica</string>
+    <string name="pago_de_impuestos">Pago de Impuestos Vehicular</string>
+    <string name="pico_y_placa">Pico y Placa</string>
 
 </resources>
