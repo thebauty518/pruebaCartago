@@ -1,6 +1,7 @@
 package com.example.bautista.pruebacartago;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -17,7 +18,8 @@ import android.view.MenuItem;
 import android.webkit.WebView;
 
 public class Navigation extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, frm_Mi_Perfil.OnFragmentInteractionListener
+,frm_Inicio.OnFragmentInteractionListener,frm_Registro_de_Autos.OnFragmentInteractionListener,frm_Servicios.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,9 +107,17 @@ public class Navigation extends AppCompatActivity
         } else if (id == R.id.Salir) {
 
         }
+        if (seleccionado==true){
+            getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,miFragment).commit();
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
