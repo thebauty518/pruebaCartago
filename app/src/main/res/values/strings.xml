@@ -11,8 +11,13 @@
     <string name="action_settings">Configuracion</string>
 
 
-    <string name="tramiautos">TRAMIAUTOS</string>
 
+    <string name="tramiautos">TRAMIAUTOS</string>
+    <string name="descripcion">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</string>
+    <string name="perfil">Mi Perfil</string>
+    <string name="participante1">Junior Bonilla</string>
+    <string name="participante2">John Bautista</string>
+    <string name="senasoft">SENASOFT 2018</string>
 
     <string name="inicio">Inicio</string>
     <string name="registro_de_autos">Registro de Autos</string>
@@ -23,6 +28,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 
 
 </resources>
