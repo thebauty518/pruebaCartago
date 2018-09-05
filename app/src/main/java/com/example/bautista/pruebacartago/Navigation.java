@@ -89,10 +89,8 @@ public class Navigation extends AppCompatActivity
         Boolean  seleccionado = false;
 
         if (id == R.id.Inicio) {
-
             miFragment =new frm_Inicio();
             seleccionado = true;
-
         } else if (id == R.id.Registro_Autos) {
             miFragment =new frm_Registro_de_Autos();
             seleccionado = true;

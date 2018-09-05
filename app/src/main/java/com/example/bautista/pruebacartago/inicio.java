@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class inicio extends AppCompatActivity implements frm_Mi_Perfil.OnFragmentInteractionListener {
+public class inicio extends AppCompatActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,12 +15,9 @@ public class inicio extends AppCompatActivity implements frm_Mi_Perfil.OnFragmen
         setContentView(R.layout.activity_inicio);
     }
     public void perfil(View view){
-        Fragment uno = new frm_Mi_Perfil();
-        getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,uno).commit();
+        Intent Menu = new Intent(this, Navigation.class );
+        startActivity(Menu);
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
 
-    }
 }

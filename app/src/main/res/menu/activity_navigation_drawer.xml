@@ -19,8 +19,11 @@
 
     </group>
 
-    <item android:title="Communicate">
-        <menu>
+
+
+        <group android:checkableBehavior="single">
+
+
             <item
                 android:id="@+id/Mi_Perfil"
                 android:icon="@drawable/ic_menu_share"
@@ -33,7 +36,9 @@
                 android:id="@+id/Salir"
                 android:icon="@drawable/ic_menu_manage"
                 android:title="@string/salir" />
-        </menu>
-    </item>
+
+        </group>
+
+
 
 </menu>
