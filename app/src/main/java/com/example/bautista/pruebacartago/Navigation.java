@@ -1,8 +1,10 @@
 package com.example.bautista.pruebacartago;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebView;
 
 public class Navigation extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -80,18 +83,26 @@ public class Navigation extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        Fragment miFragment = null;
+        Boolean  seleccionado = false;
 
+        if (id == R.id.Inicio) {
 
-        } else if (id == R.id.nav_gallery) {
+            miFragment =new frm_Inicio();
+            seleccionado = true;
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.Registro_Autos) {
+            miFragment =new frm_Registro_de_Autos();
+            seleccionado = true;
+        } else if (id == R.id.Servicios) {
+            miFragment =new frm_Servicios();
+            seleccionado = true;
+        } else if (id == R.id.Mi_Perfil) {
+            miFragment =new frm_Mi_Perfil();
+            seleccionado = true;
+        } else if (id == R.id.Acerca_de) {
 
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.Salir) {
 
         }
 
