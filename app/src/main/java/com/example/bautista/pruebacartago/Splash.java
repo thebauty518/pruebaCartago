@@ -16,7 +16,7 @@ public class Splash extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent Menu = new Intent(Splash.this, Navigation.class );
+                Intent Menu = new Intent(Splash.this, inicio.class );
                 startActivity(Menu);
                 finish();
             }
