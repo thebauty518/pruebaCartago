@@ -32,5 +32,11 @@
 
 
     <string name="guardar_registro_conductor">Guardar Registro</string>
+    <string name="eventos">Proximos Eventos</string>
+    <string name="marca">Marca</string>
+    <string name="Renovacion">Renovacion SOAP:</string>
+    <string name="placa">Placa</string>
+    <string name="revicion">Revicion Tecno-Mecanica</string>
+    <string name="pago">Pago de Impuesto Vehicular</string>
 
 </resources>
