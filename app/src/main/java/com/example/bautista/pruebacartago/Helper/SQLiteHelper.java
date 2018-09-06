@@ -23,7 +23,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
              "    Placa   VARCHAR PRIMARY KEY,\n" +
              "    Ciudad  VARCHAR,\n" +
              "    Modelo  INTEGER,\n" +
-             "    FecSoap VARCHAR\n" +
+             "    FecSoap DATE\n" +
              ");\n");
 
 
