@@ -1,5 +1,6 @@
 package com.example.bautista.pruebacartago;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,7 +13,9 @@ import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.bautista.pruebacartago.Helper.Ciudad;
 import com.example.bautista.pruebacartago.Helper.Color;
@@ -78,12 +81,14 @@ public class frm_Registro_de_Autos extends Fragment {
 
 
 
-    Button btnGuardar;
 
 
 
     View view;
     Spinner spMarca,spColor, spCiudad;
+    Button btnGuardado;
+    EditText txtPlacas, txtModelos, txtFecSoat;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -91,6 +96,11 @@ public class frm_Registro_de_Autos extends Fragment {
         view = inflater.inflate(R.layout.fragment_frm__registro_de__autos, container, false);
 
 
+        txtPlacas=(EditText)view.findViewById(R.id.txtPlaca);
+        txtModelos=(EditText)view.findViewById(R.id.txtModelo);
+        txtFecSoat=(EditText)view.findViewById(R.id.txtFsoap);
+
+        btnGuardado=(Button)view.findViewById(R.id.btnGuardar);
 
 
         spMarca=(Spinner)view.findViewById(R.id.spMarca);
@@ -115,8 +125,41 @@ public class frm_Registro_de_Autos extends Fragment {
         ArrayAdapter ciudad = new ArrayAdapter(getContext(),R.layout.support_simple_spinner_dropdown_item, mtdCiudad());
         spCiudad.setAdapter(ciudad);
 
+        btnGuardado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                SQLiteHelper base = new SQLiteHelper(getContext(), "Cartago.bd", null, 1);
+                SQLiteDatabase datos = base.getWritableDatabase();
+
+                ContentValues values = new ContentValues();
+
+                values.put("Placa",txtPlacas.getText().toString());
+                values.put("Modelo",txtModelos.getText().toString());
+                values.put("FecSoap", txtFecSoat.getText().toString());
+                values.put("Marca", spMarca.getSelectedItem().toString());
+                values.put("Color", spColor.getSelectedItem().toString());
+                values.put("Ciudad", spCiudad.getSelectedItem().toString());
+
+                Long  aLong= datos.insert("tbl_regautosx",null, values);
+
+
+                if (aLong>0){
+                    Toast.makeText(getContext(), "Registrado con Exito", Toast.LENGTH_LONG).show();
+
+                    txtFecSoat.setText("");
+                    txtModelos.setText("");
+                    txtPlacas.setText("");
+
+                }
+            }
+
+        });
         return view;
     }
+
+
+
     ArrayList<String> baseColor = new ArrayList<>();
     ArrayList<String> baseCiudad = new ArrayList<>();
     ArrayList<String> baseMarca = new ArrayList<>();
