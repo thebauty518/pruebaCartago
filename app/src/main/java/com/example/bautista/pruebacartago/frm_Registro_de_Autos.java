@@ -1,6 +1,8 @@
 package com.example.bautista.pruebacartago;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,10 +11,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+
+import com.example.bautista.pruebacartago.Helper.Ciudad;
+import com.example.bautista.pruebacartago.Helper.Color;
+import com.example.bautista.pruebacartago.Helper.Marca;
+import com.example.bautista.pruebacartago.Helper.RegistroAuto;
+import com.example.bautista.pruebacartago.Helper.SQLiteHelper;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -68,6 +78,10 @@ public class frm_Registro_de_Autos extends Fragment {
 
 
 
+    Button btnGuardar;
+
+
+
     View view;
     Spinner spMarca,spColor, spCiudad;
     @Override
@@ -78,28 +92,93 @@ public class frm_Registro_de_Autos extends Fragment {
 
 
 
+
         spMarca=(Spinner)view.findViewById(R.id.spMarca);
         spColor=(Spinner)view.findViewById(R.id.spColor);
         spCiudad=(Spinner)view.findViewById(R.id.spCiudad);
+
 
         String marca[]={"AUDI", "FIAT", "ALFA ROMEO"};
         String colores[]={"AMARILLO", "AZULBEIGE", "BLANCO", "GRIS", "MARRON", "MORADO", "NARANJA", "NEGRO", "ROJO", "VERDE"};
         String ciudades[]={"CARTAGO", "CALI", "BOGOTA", "MEDELLIN", "BARRANQUILLA"};
 
 
-        ArrayAdapter marca1 =new ArrayAdapter(getContext(),R.layout.support_simple_spinner_dropdown_item, marca);
+       /* ArrayAdapter marca1 =new ArrayAdapter(getContext(),R.layout.support_simple_spinner_dropdown_item, marca);
+        spMarca.setAdapter(marca1);*/
+
+        ArrayAdapter marca1 =new ArrayAdapter(getContext(),R.layout.support_simple_spinner_dropdown_item, mtdMarca() );
         spMarca.setAdapter(marca1);
 
-
-
-        ArrayAdapter color= new ArrayAdapter(getContext(), R.layout.support_simple_spinner_dropdown_item, colores);
+        ArrayAdapter color= new ArrayAdapter(getContext(), R.layout.support_simple_spinner_dropdown_item,mtdColor());
         spColor.setAdapter(color);
 
-        ArrayAdapter ciudad = new ArrayAdapter(getContext(),R.layout.support_simple_spinner_dropdown_item, ciudades);
+        ArrayAdapter ciudad = new ArrayAdapter(getContext(),R.layout.support_simple_spinner_dropdown_item, mtdCiudad());
         spCiudad.setAdapter(ciudad);
 
         return view;
     }
+    ArrayList<String> baseColor = new ArrayList<>();
+    ArrayList<String> baseCiudad = new ArrayList<>();
+    ArrayList<String> baseMarca = new ArrayList<>();
+    Color color = null;
+    Marca marca = null;
+    Ciudad ciudad = null;
+
+
+
+    private List mtdColor() {
+
+        SQLiteHelper dato = new SQLiteHelper(getContext(),"Cartago.db", null , 1);
+
+        SQLiteDatabase database = dato.getReadableDatabase();
+
+        Cursor cursor = database.rawQuery("SELECT Color FROM tbl_colores", null);
+
+        while (cursor.moveToNext()){
+
+            color= new Color();
+            color.setColor(cursor.getString(0));
+            baseColor.add(color.getColor());
+        }
+
+        return baseColor;
+    }
+
+    private List mtdCiudad() {
+
+        SQLiteHelper dato = new SQLiteHelper(getContext(),"Cartago.db", null , 1);
+
+        SQLiteDatabase database = dato.getReadableDatabase();
+
+        Cursor cursor = database.rawQuery("SELECT Ciudad FROM tbl_ciudades", null);
+
+        while (cursor.moveToNext()){
+
+            ciudad= new Ciudad();
+            ciudad.setCiudad(cursor.getString(0));
+            baseCiudad.add(ciudad.getCiudad());
+        }
+
+        return baseCiudad;
+    }
+    private List mtdMarca() {
+
+        SQLiteHelper dato = new SQLiteHelper(getContext(),"Cartago.db", null , 1);
+
+        SQLiteDatabase database = dato.getReadableDatabase();
+
+        Cursor cursor = database.rawQuery("SELECT Marca FROM tbl_marcautos", null);
+
+        while (cursor.moveToNext()){
+
+            marca= new Marca();
+            marca.setMarca(cursor.getString(0));
+            baseMarca.add(marca.getMarca());
+        }
+
+        return baseMarca;
+    }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

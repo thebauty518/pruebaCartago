@@ -31,7 +31,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
              "    Marca   VARCHAR\n" +
              ");\n");
 
-     sqLiteDatabase.execSQL("INSERT INTO tbl_marcautos (Marca)Values('AUDI','FIAT','ALFA ROMEO') ");
+     sqLiteDatabase.execSQL("INSERT INTO tbl_marcautos (Marca)Values('AUDI'),('FIAT'),('ALFA ROMEO')");
 
 
      sqLiteDatabase.execSQL("CREATE TABLE tbl_colores (\n" +
@@ -39,15 +39,15 @@ public class SQLiteHelper extends SQLiteOpenHelper {
              "    Color   VARCHAR\n" +
              ");\n");
 
-    sqLiteDatabase.execSQL("INSERT INTO tbl_colores (Color)Values('AMARILLO','AZULBEIGE','BLANCO'" +
-            ",'CAFE','GRIS','MARRON','MORADO','NARANJA','NEGRO','ROJO','VERDE') ");
+    sqLiteDatabase.execSQL("INSERT INTO tbl_colores (Color)Values('AMARILLO'),('AZULBEIGE'),('BLANCO')" +
+            ",('CAFE'),('GRIS'),('MARRON'),('MORADO'),('NARANJA'),('NEGRO'),('ROJO'),('VERDE') ");
 
     sqLiteDatabase.execSQL("CREATE TABLE tbl_ciudades (\n" +
             "    idCiudades INTEGER PRIMARY KEY,\n" +
             "    Ciudad     VARCHAR\n" +
             ");\n");
 
-    sqLiteDatabase.execSQL("INSERT INTO tbl_ciudades (Ciudad)Values('CARTAGO','CALI','BOGOTA','MEDELLIN','BARRANQUILLA') ");
+    sqLiteDatabase.execSQL("INSERT INTO tbl_ciudades (Ciudad)Values('CARTAGO'),('CALI'),('BOGOTA'),('MEDELLIN'),('BARRANQUILLA') ");
 
 
 
