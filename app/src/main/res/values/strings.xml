@@ -15,7 +15,7 @@
 
 
     <string name="tramiautos">TRAMIAUTOS</string>
-    <string name="descripcion">Esta es una aplicacion que permite el control de los vehiculos y tramites como: renovacion de el SOAT, revicion tecnomecanica. Control en el pago de impuesto vehicular para manejar documentacion que permite informar proximos eventos </string>
+    <string name="descripcion">Esta es una aplicacion que permite el control de tramite vehiculos como: renovacion de el SOAT, revicion tecnomecanica. Control en el pago de impuesto vehicular para manejar documentacion que permite informar proximos eventos </string>
     <string name="perfil">Mi Perfil</string>
     <string name="participante1">Junior Bonilla</string>
     <string name="participante2">John Bautista</string>

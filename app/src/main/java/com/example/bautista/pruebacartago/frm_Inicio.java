@@ -68,9 +68,7 @@ public class frm_Inicio extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        lista_uno.setLayoutManager(new LinearLayoutManager(this.getActivity()));
-        adaptador_uno= new Adaptador_uno(ObtenerLista());
-        lista_uno.setAdapter(adaptador_uno);
+
 
     }
 RecyclerView lista_uno;
@@ -81,7 +79,9 @@ RecyclerView lista_uno;
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_frm__inicio, container, false);
         lista_uno = view.findViewById(R.id.lista);
-
+        lista_uno.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+        adaptador_uno= new Adaptador_uno(ObtenerLista());
+        lista_uno.setAdapter(adaptador_uno);
     return view;
     }
 
