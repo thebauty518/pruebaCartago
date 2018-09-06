@@ -1,6 +1,8 @@
 package com.example.bautista.pruebacartago.Helper;
 
-public class Usuario  {
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
 
     private String Nombre;
     private String Fecha_Nacimiento;

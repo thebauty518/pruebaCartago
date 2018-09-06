@@ -50,6 +50,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     sqLiteDatabase.execSQL("INSERT INTO tbl_ciudades (Ciudad)Values('CARTAGO','CALI','BOGOTA','MEDELLIN','BARRANQUILLA') ");
 
 
+
     }
 
     @Override

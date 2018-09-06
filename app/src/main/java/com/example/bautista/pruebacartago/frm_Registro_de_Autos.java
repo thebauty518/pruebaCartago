@@ -76,6 +76,8 @@ public class frm_Registro_de_Autos extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_frm__registro_de__autos, container, false);
 
+
+
         spMarca=(Spinner)view.findViewById(R.id.spMarca);
         spColor=(Spinner)view.findViewById(R.id.spColor);
         spCiudad=(Spinner)view.findViewById(R.id.spCiudad);
