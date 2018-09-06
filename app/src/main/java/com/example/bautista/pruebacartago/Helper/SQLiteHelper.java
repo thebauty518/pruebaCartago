@@ -15,6 +15,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
 
+    //tabla regautosx
 
      sqLiteDatabase.execSQL("CREATE TABLE tbl_regautosx (\n" +
              "    Marca   VARCHAR,\n" +
@@ -26,14 +27,17 @@ public class SQLiteHelper extends SQLiteOpenHelper {
              ");\n");
 
 
+     //tabla marcautos
      sqLiteDatabase.execSQL("CREATE TABLE tbl_marcautos (\n" +
              "    idMarca INTEGER PRIMARY KEY,\n" +
              "    Marca   VARCHAR\n" +
              ");\n");
 
+
      sqLiteDatabase.execSQL("INSERT INTO tbl_marcautos (Marca)Values('AUDI'),('FIAT'),('ALFA ROMEO')");
 
 
+     //tabla colores
      sqLiteDatabase.execSQL("CREATE TABLE tbl_colores (\n" +
              "    idColor INTEGER PRIMARY KEY,\n" +
              "    Color   VARCHAR\n" +
@@ -42,12 +46,48 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     sqLiteDatabase.execSQL("INSERT INTO tbl_colores (Color)Values('AMARILLO'),('AZULBEIGE'),('BLANCO')" +
             ",('CAFE'),('GRIS'),('MARRON'),('MORADO'),('NARANJA'),('NEGRO'),('ROJO'),('VERDE') ");
 
+    //tabla ciudades
     sqLiteDatabase.execSQL("CREATE TABLE tbl_ciudades (\n" +
             "    idCiudades INTEGER PRIMARY KEY,\n" +
             "    Ciudad     VARCHAR\n" +
             ");\n");
 
     sqLiteDatabase.execSQL("INSERT INTO tbl_ciudades (Ciudad)Values('CARTAGO'),('CALI'),('BOGOTA'),('MEDELLIN'),('BARRANQUILLA') ");
+
+
+    //tabla impuesto Carro
+
+
+     sqLiteDatabase.execSQL("CREATE TABLE tbl_impuesto_carro (\n"+
+             " idImpuesto INTEGER PRIMARY KEY, \n"+
+             " Ciudad VARCHAR,\n"+
+             " Mes VARCHAR,\n"+
+             " Numero_ini,\n"+
+             " Numero_fin,\n"+
+             " Año\n"+
+             ");\n");
+
+     sqLiteDatabase.execSQL("INSERT INTO tbl_impuesto_carro (Ciudad, Mes, Numero_ini, Numero_fin" +
+             ", Año)Values('CARTAGO', 'MARZO', '000', '333', '2018')");
+
+    sqLiteDatabase.execSQL("INSERT INTO tbl_impuesto_carro (Ciudad, Mes, Numero_ini, Numero_fin" +
+            ", Año)Values('CARTAGO', 'ABRIL', '334', '666', '2018')");
+
+    sqLiteDatabase.execSQL("INSERT INTO tbl_impuesto_carro (Ciudad, Mes, Numero_ini, Numero_fin" +
+            ", Año)Values('CARTAGO', 'MAYO', '667', '999', '2018')");
+
+
+
+    sqLiteDatabase.execSQL("INSERT INTO tbl_impuesto_carro (Ciudad, Mes, Numero_ini, Numero_fin" +
+            ", Año)Values('BOGOTA', 'JUNIO', '000', '333', '2018')");
+
+    sqLiteDatabase.execSQL("INSERT INTO tbl_impuesto_carro (Ciudad, Mes, Numero_ini, Numero_fin" +
+            ", Año)Values('BOGOTA', 'JUlIO', '334', '666', '2017')");
+
+    sqLiteDatabase.execSQL("INSERT INTO tbl_impuesto_carro (Ciudad, Mes, Numero_ini, Numero_fin" +
+            ", Año)Values('BOGOTA', 'AGOSTO', '667', '999', '2017')");
+
+
 
 
 
