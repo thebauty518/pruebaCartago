@@ -11,7 +11,7 @@ public class Splash extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+        setContentView(R.layout.splashop);
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -20,6 +20,6 @@ public class Splash extends AppCompatActivity {
                 startActivity(Menu);
                 finish();
             }
-        },10000);
+        },1000);
     }
 }

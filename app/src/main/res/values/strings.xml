@@ -33,7 +33,7 @@
 
 
 
-    <string name="guardar_registro_conductor">Guardar Registro</string>
+    <string name="guardar_registro_conductor">Guardar Registro Conductor</string>
     <string name="eventos">Proximos Eventos</string>
     <string name="marca">Marca</string>
     <string name="Renovacion">Renovacion SOAP:</string>
