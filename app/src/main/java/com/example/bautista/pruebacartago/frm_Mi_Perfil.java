@@ -119,9 +119,12 @@ public class frm_Mi_Perfil extends Fragment {
                         Fvencimiento.setText("");
                         Fnacimiento.setText("");
                         Correo.setText("");
+                        Fragment uno = new frm_Inicio();
+
                     }
 
                 }
+
             }
         });
 
