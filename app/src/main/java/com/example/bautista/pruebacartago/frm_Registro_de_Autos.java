@@ -1,5 +1,6 @@
 package com.example.bautista.pruebacartago;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.bautista.pruebacartago.Helper.Ciudad;
@@ -78,12 +80,14 @@ public class frm_Registro_de_Autos extends Fragment {
 
 
 
-    Button btnGuardar;
 
 
 
     View view;
     Spinner spMarca,spColor, spCiudad;
+
+    EditText txtPlacas, txtModelos, txtFecSoat;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -91,6 +95,9 @@ public class frm_Registro_de_Autos extends Fragment {
         view = inflater.inflate(R.layout.fragment_frm__registro_de__autos, container, false);
 
 
+        txtPlacas=(EditText)view.findViewById(R.id.txtPlaca);
+        txtModelos=(EditText)view.findViewById(R.id.txtModelo);
+        txtFecSoat=(EditText)view.findViewById(R.id.txtFsoap);
 
 
         spMarca=(Spinner)view.findViewById(R.id.spMarca);
@@ -117,6 +124,27 @@ public class frm_Registro_de_Autos extends Fragment {
 
         return view;
     }
+
+    public void mtdRegistrar(View view){
+
+
+        SQLiteHelper base = new SQLiteHelper(getContext(), "Cartago.bd", null, 1);
+        SQLiteDatabase datos = base.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put("Placa",txtPlacas.getText().toString());
+        values.put("Modelo",txtModelos.getText().toString());
+        values.put("FecSoap", txtFecSoat.getText().toString());
+        values.put("Marca", spMarca.getSelectedItem().toString());
+        values.put("Color", spColor.getSelectedItem().toString());
+        values.put("Ciudad", spCiudad.getSelectedItem().toString());
+
+        datos.insert("tbl_regautosx",null, values);
+
+
+    }
+
     ArrayList<String> baseColor = new ArrayList<>();
     ArrayList<String> baseCiudad = new ArrayList<>();
     ArrayList<String> baseMarca = new ArrayList<>();
