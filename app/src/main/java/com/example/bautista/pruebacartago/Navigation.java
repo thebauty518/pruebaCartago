@@ -107,6 +107,7 @@ public class Navigation extends AppCompatActivity
         }
         if (seleccionado==true){
             getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,miFragment).commit();
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

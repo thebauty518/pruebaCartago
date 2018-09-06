@@ -143,4 +143,44 @@
 
 
     </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/lbLinea"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorGris"
+        tools:layout_editor_absoluteX="10dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/senasoft"
+        android:textSize="24sp"
+        android:textStyle="bold"
+ />
+
+    <TextView
+        android:id="@+id/lbJunior"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/participante1"
+        android:textSize="18sp"
+       />
+
+
+
+    <TextView
+        android:id="@+id/lbJohn"
+        android:layout_width="wrap_content"
+        android:layout_height="21dp"
+        android:text="@string/participante2"
+        android:textSize="18sp"
+        />
+
+
 </LinearLayout>

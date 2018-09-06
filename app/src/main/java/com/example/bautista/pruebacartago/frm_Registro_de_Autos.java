@@ -7,6 +7,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 
 /**
@@ -60,11 +66,37 @@ public class frm_Registro_de_Autos extends Fragment {
         }
     }
 
+
+
+    View view;
+    Spinner spMarca,spColor, spCiudad;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_frm__registro_de__autos, container, false);
+        view = inflater.inflate(R.layout.fragment_frm__registro_de__autos, container, false);
+
+        spMarca=(Spinner)view.findViewById(R.id.spMarca);
+        spColor=(Spinner)view.findViewById(R.id.spColor);
+        spCiudad=(Spinner)view.findViewById(R.id.spCiudad);
+
+        String marca[]={"AUDI", "FIAT", "ALFA ROMEO"};
+        String colores[]={"AMARILLO", "AZULBEIGE", "BLANCO", "GRIS", "MARRON", "MORADO", "NARANJA", "NEGRO", "ROJO", "VERDE"};
+        String ciudades[]={"CARTAGO", "CALI", "BOGOTA", "MEDELLIN", "BARRANQUILLA"};
+
+
+        ArrayAdapter marca1 =new ArrayAdapter(getContext(),R.layout.support_simple_spinner_dropdown_item, marca);
+        spMarca.setAdapter(marca1);
+
+
+
+        ArrayAdapter color= new ArrayAdapter(getContext(), R.layout.support_simple_spinner_dropdown_item, colores);
+        spColor.setAdapter(color);
+
+        ArrayAdapter ciudad = new ArrayAdapter(getContext(),R.layout.support_simple_spinner_dropdown_item, ciudades);
+        spCiudad.setAdapter(ciudad);
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

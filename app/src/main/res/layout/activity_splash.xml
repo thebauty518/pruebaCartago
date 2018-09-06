@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAmarillo"
+    android:background="#040b40"
     tools:context=".Splash">
 
     <TextView
@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:text="@string/tramiautos"
         android:textAlignment="textStart"
+        android:textColor="#fff"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         android:textStyle="bold"
