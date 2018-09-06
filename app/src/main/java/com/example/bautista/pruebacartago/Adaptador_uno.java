@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.bautista.pruebacartago.Helper.RegistroAuto;
+
 import java.util.List;
 
 public class Adaptador_uno extends RecyclerView.Adapter<Adaptador_uno.ViewHolder> {
@@ -21,7 +23,11 @@ public class Adaptador_uno extends RecyclerView.Adapter<Adaptador_uno.ViewHolder
             Renovacion =itemView.findViewById(R.id.txtRenovacion);
         }
     }
+    List<RegistroAuto>lista;
 
+    public Adaptador_uno(List<RegistroAuto> lista) {
+        this.lista = lista;
+    }
 
     public Adaptador_uno.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card,null);
@@ -30,12 +36,13 @@ public class Adaptador_uno extends RecyclerView.Adapter<Adaptador_uno.ViewHolder
     }
       @Override
     public void onBindViewHolder(@NonNull Adaptador_uno.ViewHolder viewHolder, int i) {
-
-
+            viewHolder.Marca.setText(lista.get(i).getMarca());
+            viewHolder.Placa.setText(lista.get(i).getPlaca());
+            viewHolder.Renovacion.setText(lista.get(i).getFecSoap());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return lista.size();
     }
 }

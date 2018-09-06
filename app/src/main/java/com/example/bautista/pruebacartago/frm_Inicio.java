@@ -1,12 +1,22 @@
 package com.example.bautista.pruebacartago;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.bautista.pruebacartago.Helper.RegistroAuto;
+import com.example.bautista.pruebacartago.Helper.SQLiteHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -58,13 +68,36 @@ public class frm_Inicio extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-    }
 
+    }
+RecyclerView lista_uno;
+    Adaptador_uno adaptador_uno;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_frm__inicio, container, false);
+        View view= inflater.inflate(R.layout.fragment_frm__inicio, container, false);
+        lista_uno = view.findViewById(R.id.lista);
+        lista_uno.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+        adaptador_uno= new Adaptador_uno(ObtenerLista());
+        lista_uno.setAdapter(adaptador_uno);
+    return view;
+    }
+
+    private List<RegistroAuto> ObtenerLista() {
+        SQLiteHelper base = new SQLiteHelper(getContext(),"Cartago.db",null,1);
+        SQLiteDatabase datos = base.getReadableDatabase();
+        List<RegistroAuto>lista= new ArrayList<>();
+        RegistroAuto registroAuto = null;
+        Cursor cursor = datos.rawQuery("SELECT Marca,Placa,FecSoap FROM tbl_regautosx WHERE FecSoap<(06/09/2018)",null);
+        while (cursor.moveToNext()){
+            registroAuto = new  RegistroAuto();
+            registroAuto.setMarca(cursor.getString(0));
+            registroAuto.setPlaca(cursor.getString(1));
+            registroAuto.setFecSoap(cursor.getString(2));
+            lista.add(registroAuto);
+        }
+        return lista;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -23,7 +23,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
              "    Placa   VARCHAR PRIMARY KEY,\n" +
              "    Ciudad  VARCHAR,\n" +
              "    Modelo  INTEGER,\n" +
-             "    FecSoap VARCHAR\n" +
+             "    FecSoap DATE\n" +
              ");\n");
 
 
@@ -76,8 +76,6 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     sqLiteDatabase.execSQL("INSERT INTO tbl_impuesto_carro (Ciudad, Mes, Numero_ini, Numero_fin" +
             ", Año)Values('CARTAGO', 'MAYO', '667', '999', '2018')");
 
-
-
     sqLiteDatabase.execSQL("INSERT INTO tbl_impuesto_carro (Ciudad, Mes, Numero_ini, Numero_fin" +
             ", Año)Values('BOGOTA', 'JUNIO', '000', '333', '2018')");
 
@@ -87,7 +85,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     sqLiteDatabase.execSQL("INSERT INTO tbl_impuesto_carro (Ciudad, Mes, Numero_ini, Numero_fin" +
             ", Año)Values('BOGOTA', 'AGOSTO', '667', '999', '2017')");
 
-
+sqLiteDatabase.execSQL("INSERT INTO tbl_regautosx(Marca,Color,Placa,Ciudad,Modelo,FecSoap)VALUES('AUDI','Rojo','CVD765','BOGOTA','2018','18/02/18')");
 
 
 
