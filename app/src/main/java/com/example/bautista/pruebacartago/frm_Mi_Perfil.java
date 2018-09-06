@@ -1,12 +1,16 @@
 package com.example.bautista.pruebacartago;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
 /**
@@ -59,12 +63,70 @@ public class frm_Mi_Perfil extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
+    EditText Nombre,Fnacimiento,Fvencimiento,Correo;
+    Button guardar;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_frm__mi__perfil, container, false);
+        View view= inflater.inflate(R.layout.fragment_frm__mi__perfil, container, false);
+        Nombre = view.findViewById(R.id.txtNombre);
+        Fnacimiento = view.findViewById(R.id.txtFnacimiento);
+        Fvencimiento = view.findViewById(R.id.txtVenLicencia);
+        Correo = view.findViewById(R.id.txtEmail);
+        guardar = view.findViewById(R.id.btnGuardar);
+        SharedPreferences preferences = getContext().getSharedPreferences("Datos_Usuario",Context.MODE_PRIVATE);
+        final String registro = preferences.getString("Nombre_Completo","");
+        if (!registro.isEmpty()){
+            Nombre.setText(preferences.getString("Nombre_Completo",""));
+            Fvencimiento.setText(preferences.getString("Fecha_Vencimiento",""));
+            Fnacimiento.setText(preferences.getString("Fecha_Nacimiento",""));
+            Correo.setText(preferences.getString("Email",""));
+        }
+        guardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!registro.isEmpty()){
+                    if (Nombre.getText().toString().isEmpty() || Fnacimiento.getText().toString().isEmpty() || Fvencimiento.getText().toString().isEmpty() || Correo.getText().toString().isEmpty()) {
+                        Toast.makeText(getContext(), "debe llenar todos los campos para actualizar", Toast.LENGTH_SHORT).show();
+                    } else {
+                        SharedPreferences sharedPreferences = getContext().getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("Nombre_Completo", Nombre.getText().toString());
+                        editor.putString("Fecha_Nacimiento", Fnacimiento.getText().toString());
+                        editor.putString("Fecha_Vencimiento", Fvencimiento.getText().toString());
+                        editor.putString("Email", Correo.getText().toString());
+                        editor.commit();
+                        Toast.makeText(getContext(), "“REGISTRO MODIFICADO", Toast.LENGTH_SHORT).show();
+                        Nombre.setText("");
+                        Fvencimiento.setText("");
+                        Fnacimiento.setText("");
+                        Correo.setText("");
+                    }
+                }else {
+                    if (Nombre.getText().toString().isEmpty() || Fnacimiento.getText().toString().isEmpty() || Fvencimiento.getText().toString().isEmpty() || Correo.getText().toString().isEmpty()) {
+                        Toast.makeText(getContext(), "Debe de llenar todos los campos para guardar", Toast.LENGTH_SHORT).show();
+                    } else {
+                        SharedPreferences sharedPreferences = getContext().getSharedPreferences("Datos_Usuario", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("Nombre_Completo", Nombre.getText().toString());
+                        editor.putString("Fecha_Nacimiento", Fnacimiento.getText().toString());
+                        editor.putString("Fecha_Vencimiento", Fvencimiento.getText().toString());
+                        editor.putString("Email", Correo.getText().toString());
+                        editor.commit();
+                        Toast.makeText(getContext(), "NUEVO REGISTRO GUARDADO", Toast.LENGTH_SHORT).show();
+                        Nombre.setText("");
+                        Fvencimiento.setText("");
+                        Fnacimiento.setText("");
+                        Correo.setText("");
+                    }
+
+                }
+            }
+        });
+
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

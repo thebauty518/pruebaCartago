@@ -1,6 +1,7 @@
 package com.example.bautista.pruebacartago;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -45,6 +46,18 @@ public class Navigation extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        SharedPreferences sharedPreferences = this.getSharedPreferences("Datos_Usuario",MODE_PRIVATE);
+        String registro = sharedPreferences.getString("Nombre_Completo","");
+
+        if (!registro.isEmpty()){
+            Fragment uno = new frm_Inicio();
+            getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,uno).commit();
+        }else{
+            Fragment uno = new frm_Mi_Perfil();
+            getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,uno).commit();
+        }
+
     }
 
     @Override
