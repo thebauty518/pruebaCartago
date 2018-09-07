@@ -20,14 +20,14 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/lista"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="280dp" />
 
     <TextView
         android:id="@+id/lbLinea"
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:layout_marginTop="150dp"
         android:layout_marginBottom="20dp"
+        android:layout_marginTop="30dp"
         android:background="@color/colorGris"
         tools:layout_editor_absoluteX="10dp" />
 

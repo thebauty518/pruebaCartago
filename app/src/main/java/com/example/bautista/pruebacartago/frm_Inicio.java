@@ -68,9 +68,7 @@ public class frm_Inicio extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        lista_uno.setLayoutManager(new LinearLayoutManager(this.getActivity()));
-        adaptador_uno= new Adaptador_uno(ObtenerLista());
-        lista_uno.setAdapter(adaptador_uno);
+
 
     }
 RecyclerView lista_uno;
@@ -81,7 +79,9 @@ RecyclerView lista_uno;
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_frm__inicio, container, false);
         lista_uno = view.findViewById(R.id.lista);
-
+        lista_uno.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+        adaptador_uno= new Adaptador_uno(ObtenerLista());
+        lista_uno.setAdapter(adaptador_uno);
     return view;
     }
 
@@ -90,12 +90,13 @@ RecyclerView lista_uno;
         SQLiteDatabase datos = base.getReadableDatabase();
         List<RegistroAuto>lista= new ArrayList<>();
         RegistroAuto registroAuto = null;
-        Cursor cursor = datos.rawQuery("SELECT Marca,Placa,FecSoap FROM tbl_regautosx WHERE FecSoap<(06/09/2018)",null);
+        Cursor cursor = datos.rawQuery("SELECT Marca,Placa,FecSoap,Modelo FROM tbl_regautosx",null);
         while (cursor.moveToNext()){
             registroAuto = new  RegistroAuto();
             registroAuto.setMarca(cursor.getString(0));
             registroAuto.setPlaca(cursor.getString(1));
             registroAuto.setFecSoap(cursor.getString(2));
+            registroAuto.setModelo(cursor.getString(3));
             lista.add(registroAuto);
         }
         return lista;

@@ -85,8 +85,13 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     sqLiteDatabase.execSQL("INSERT INTO tbl_impuesto_carro (Ciudad, Mes, Numero_ini, Numero_fin" +
             ", Año)Values('BOGOTA', 'AGOSTO', '667', '999', '2017')");
 
-sqLiteDatabase.execSQL("INSERT INTO tbl_regautosx(Marca,Color,Placa,Ciudad,Modelo,FecSoap)VALUES('AUDI','Rojo','CVD765','BOGOTA','2018','18/02/18')");
+sqLiteDatabase.execSQL("INSERT INTO tbl_regautosx(Marca,Color,Placa,Ciudad,Modelo,FecSoap)VALUES" +
+        "('AUDI','Rojo','CVD765','BOGOTA','2018','18/02/2018')");
+        sqLiteDatabase.execSQL("INSERT INTO tbl_regautosx(Marca,Color,Placa,Ciudad,Modelo,FecSoap)VALUES" +
+                "('AUDI','Rojo','CVD768','BOGOTA','2018','18/02/2018')");
 
+        sqLiteDatabase.execSQL("INSERT INTO tbl_regautosx(Marca,Color,Placa,Ciudad,Modelo,FecSoap)VALUES" +
+                "('AUDI','Rojo','CVD767','BOGOTA','2018','18/02/2018')");
 
 
     }

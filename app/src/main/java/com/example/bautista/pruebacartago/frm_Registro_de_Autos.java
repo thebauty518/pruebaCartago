@@ -129,7 +129,7 @@ public class frm_Registro_de_Autos extends Fragment {
             @Override
             public void onClick(View view) {
 
-                SQLiteHelper base = new SQLiteHelper(getContext(), "Cartago.bd", null, 1);
+                SQLiteHelper base = new SQLiteHelper(getContext(), "Cartago.db", null, 1);
                 SQLiteDatabase datos = base.getWritableDatabase();
 
                 ContentValues values = new ContentValues();
